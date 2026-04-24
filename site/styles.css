@@ -183,13 +183,14 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 900;
-  background: rgba(247, 244, 239, 0.92);
-  backdrop-filter: blur(10px);
+  /* No backdrop-filter: it can trap position:fixed #navMenu inside this short header. */
+  background: rgba(247, 244, 239, 0.97);
+  overflow: visible;
   transition: box-shadow var(--transition), background var(--transition);
 }
 
 .site-header.is-scrolled {
-  background: rgba(247, 244, 239, 0.97);
+  background: rgba(247, 244, 239, 0.985);
   box-shadow: var(--shadow-nav);
 }
 
@@ -202,6 +203,7 @@ h3 {
   margin-inline: auto;
   padding: 0.5rem 1rem;
   min-height: 3.75rem;
+  overflow: visible;
 }
 
 .nav__spacer {
@@ -293,7 +295,8 @@ h3 {
   border: 0;
   background: transparent;
   cursor: pointer;
-  z-index: 950;
+  position: relative;
+  z-index: 905;
 }
 
 .nav__toggle-bar {
@@ -345,6 +348,37 @@ h3 {
   pointer-events: none;
 }
 
+.nav__menu-header {
+  display: none;
+}
+
+.nav__menu-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.nav__menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.06);
+  color: var(--black);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.nav__menu-close:hover {
+  background: rgba(10, 10, 10, 0.1);
+}
+
 @media (max-width: 1023px) {
   .nav__spacer {
     display: block;
@@ -353,8 +387,38 @@ h3 {
     height: 1px;
   }
 
+  .nav__menu {
+    padding: max(0.75rem, env(safe-area-inset-top, 0px)) 1.25rem 2rem;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    z-index: 1100;
+  }
+
+  .nav__menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+    margin-bottom: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+    list-style: none;
+  }
+
+  .nav__menu > li:not(.nav__menu-header) {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
   .nav__menu-cta {
-    display: none;
+    margin-top: 0.75rem;
+    max-width: 22rem;
+    width: 100%;
+    margin-inline: auto;
   }
 
   .nav__end .nav__cta {
@@ -379,6 +443,12 @@ h3 {
   pointer-events: auto;
 }
 
+@media (max-width: 1023px) {
+  .nav.is-open .nav__menu {
+    box-shadow: -8px 0 32px rgba(10, 10, 10, 0.12);
+  }
+}
+
 .nav__link {
   display: flex;
   align-items: center;
@@ -393,6 +463,16 @@ h3 {
 
 .nav__link:hover {
   color: var(--teal);
+}
+
+@media (max-width: 1023px) {
+  .nav__menu .nav__link {
+    font-size: 1.1rem;
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius);
+  }
 }
 
 .nav__menu-cta {
@@ -453,11 +533,25 @@ h3 {
     max-width: none;
     margin: 0;
     pointer-events: auto;
+    z-index: auto;
+    box-shadow: none;
+  }
+
+  .nav__menu-header {
+    display: none !important;
   }
 
   .nav__link {
     font-size: 0.95rem;
     min-height: 44px;
+    width: auto;
+    border-radius: 0;
+  }
+
+  .nav__menu > li:not(.nav__menu-header) {
+    width: auto;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .nav__menu-cta {

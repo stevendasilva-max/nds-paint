@@ -26,6 +26,7 @@
   var navToggle = document.getElementById("navToggle");
   var navMenu = document.getElementById("navMenu");
   var navBackdrop = document.getElementById("navBackdrop");
+  var navMenuClose = document.querySelector(".nav__menu-close");
 
   function setNavOpen(open) {
     if (!nav || !navToggle) return;
@@ -36,6 +37,11 @@
       navBackdrop.hidden = !open;
     }
     document.body.style.overflow = open ? "hidden" : "";
+    if (open && navMenuClose) {
+      window.setTimeout(function () {
+        navMenuClose.focus();
+      }, 50);
+    }
   }
 
   function closeNav() {
@@ -49,6 +55,13 @@
     });
   }
 
+  if (navMenuClose) {
+    navMenuClose.addEventListener("click", function () {
+      closeNav();
+      if (navToggle) navToggle.focus();
+    });
+  }
+
   if (navBackdrop) {
     navBackdrop.addEventListener("click", closeNav);
   }
@@ -58,7 +71,11 @@
       link.addEventListener("click", closeNav);
     });
     var menuCta = navMenu.querySelector(".nav__menu-cta a");
-    if (menuCta) menuCta.addEventListener("click", closeNav);
+    if (menuCta) {
+      menuCta.addEventListener("click", function () {
+        closeNav();
+      });
+    }
   }
 
   document.addEventListener("keydown", function (e) {
