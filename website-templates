@@ -1,0 +1,17 @@
+<script>start("/Users/stevendasilva/cornerstone-recording/website-templates/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow(".git",".git",1,384,"384 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("css","css",1,544,"544 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("docs","docs",1,96,"96 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("footers","footers",1,192,"192 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("forms","forms",1,128,"128 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("full-pages","full-pages",1,352,"352 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("headers","headers",1,128,"128 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("heroes","heroes",1,192,"192 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("js","js",1,192,"192 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("menus","menus",1,96,"96 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow("popups","popups",1,96,"96 B",1776635658,"4/19/26, 4:54:18 PM");</script>
+<script>addRow(".DS_Store",".DS_Store",0,6148,"6.0 kB",1776636321,"4/19/26, 5:05:21 PM");</script>
+<script>addRow("QUICK-START.md","QUICK-START.md",0,7294,"7.1 kB",1762115032,"11/2/25, 2:23:52 PM");</script>
+<script>addRow("README.md","README.md",0,11642,"11.4 kB",1762115030,"11/2/25, 2:23:50 PM");</script>
+<script>addRow("TEMPLATE-INDEX.md","TEMPLATE-INDEX.md",0,9361,"9.1 kB",1762115032,"11/2/25, 2:23:52 PM");</script>
